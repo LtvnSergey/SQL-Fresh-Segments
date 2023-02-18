@@ -136,7 +136,43 @@ FROM
 
 --- 
 
-#### 7. What sort of table join should we perform for our analysis and why? Check your logic by checking the rows where interest_id = 21246 in your joined output and include all columns from fresh_segments.interest_metrics and all columns from fresh_segments.interest_map except from the id column.
+#### 7. Join of tables `fresh_segments.interest_metrics` and `fresh_segments.interest_map` except from the id column.
+
+````sql
+SELECT
+	interest_id, 
+	interest_name, 
+	interest_summary, 
+	composition, 
+	index_value, 
+	ranking, 
+	percentile_ranking,
+	_month, 
+	_year, 
+	month_year,
+	created_at, 
+	last_modified
+FROM
+	interest_metrics im
+LEFT JOIN
+	interest_map m	
+ON
+	im.interest_id::INT = m.id
+````
+
+
+|interest_id|interest_name|interest_summary|composition|index_value|ranking|percentile_ranking|_month|_year|month_year|created_at|last_modified|
+|-----------|-------------|----------------|-----------|-----------|-------|------------------|------|-----|----------|----------|-------------|
+|169|Social Liberals|People reading left-leaning social issues websites.|6.1|2.72|130|82.17|7|2018|2018-07-01|2016-05-26 14:57:59.000|2018-05-23 11:30:13.000|
+|101|Flower & Gift Basket Shoppers|Consumers shopping for flowers and gift baskets.|7.38|2.72|130|82.17|7|2018|2018-07-01|2016-05-26 14:57:59.000|2018-05-23 11:30:12.000|
+|6087|Metal and Rock Music Fans|People researching news and viewing online content focused on metal and rock music.|5.41|2.71|132|81.89|7|2018|2018-07-01|2017-03-27 16:59:29.000|2017-12-27 12:31:08.000|
+|104|Country Music Fans|People reading about country music and country music stars.|5.42|2.71|132|81.89|7|2018|2018-07-01|2016-05-26 14:57:59.000|2018-05-23 11:30:12.000|
+|6284|Gym Equipment Owners|People researching and comparing fitness trends and techniques. These consumers are more likely to spend money on gym equipment for their homes.|18.82|2.71|132|81.89|7|2018|2018-07-01|2017-04-18 15:46:10.000|2017-12-27 12:31:08.000|
+|7557|Tailgaters||8.17|2.71|132|81.89|7|2018|2018-07-01|2017-07-20 17:31:31.000|2019-01-16 09:11:30.000|
+|37|Jewelry & Watch Shoppers|Consumers researching high-end watch and jewelry brands.|7.82|2.71|132|81.89|7|2018|2018-07-01|2016-05-26 14:57:59.000|2018-05-23 11:30:12.000|
+|6084|Media Buying Professionals|Professionals reading advertising industry news and media buying trends.|6.97|2.69|137|81.21|7|2018|2018-07-01|2017-03-27 16:59:29.000|2018-05-23 11:30:12.000|
+|8|Business News Readers|Readers of online business news content.|6.67|2.68|138|81.07|7|2018|2018-07-01|2016-05-26 14:57:59.000|2018-05-23 11:30:12.000|
+|5969|Luxury Bedding Shoppers|Consumers shopping for luxury bedding.|11.15|2.68|138|81.07|7|2018|2018-07-01|2017-03-08 09:57:00.000|2018-05-23 11:30:12.000|
 
 
 --- 
