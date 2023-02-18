@@ -34,41 +34,37 @@ The project is based on [SQL-8-week-challenge](https://8weeksqlchallenge.com/cas
 
 ### Data description
 
-* **Users**
 
-Customers who visit the Clique Bait website are tagged via their `cookie_id`.
-
-![image](https://user-images.githubusercontent.com/35038779/217028827-09b348c0-737f-47fc-9ae8-f27eb7c8f73c.png)
-
-* **Events**
-
-Customer visits are logged in this events table at a `cookie_id` level and the `event_type` and `page_id` values can be used to join onto relevant satellite tables to obtain further information about each event.
-
-The sequence_number is used to order the events within each visit.
-
-![image](https://user-images.githubusercontent.com/35038779/217029123-2695dc66-1b27-42b1-a7e5-b199a0e55aaf.png)
+* **Interest Metrics**
 
 
-* **Event Identifier** 
+This table contains information about aggregated interest metrics for a specific major client of Fresh Segments which makes up a large proportion of their customer base.
 
-The `event_identifier` table shows the types of events which are captured by Clique Bait’s digital data systems.
-
-![image](https://user-images.githubusercontent.com/35038779/217029809-bbfca0d9-0f60-4f2a-8235-6fd3e816da02.png)
+Each record in this table represents the performance of a specific `interest_id` based on the client’s customer base interest measured through clicks and interactions with specific targeted advertising content.
 
 
-* **Campaign Identifier**
+| _month | _year | month_year | interest_id | composition | index_value | ranking | percentile_ranking |
+| ------ | ----- | ---------- | ----------- | ----------- | ----------- | ------- | ------------------ |
+| 7      | 2018  | 07-2018    | 32486       | 11.89       | 6.19        | 1       | 99.86              |
+| 7      | 2018  | 07-2018    | 6106        | 9.93        | 5.31        | 2       | 99.73              |
+| 7      | 2018  | 07-2018    | 18923       | 10.85       | 5.29        | 3       | 99.59              |
+| 7      | 2018  | 07-2018    | 6344        | 10.32       | 5.1         | 4       | 99.45              |
+| 7      | 2018  | 07-2018    | 100         | 10.77       | 5.04        | 5       | 99.31              |
 
-This table shows information for the 3 campaigns that Clique Bait has ran on their website so far in 2020.
-
-![image](https://user-images.githubusercontent.com/35038779/217030051-2493d98d-4ccf-4fd6-9adf-6e9804313f2f.png)
 
 
-* **Page Hierarchy**
+* **Interest Map**
 
-This table lists all of the pages on the Clique Bait website which are tagged and have data passing through from user interaction events.
 
-![image](https://user-images.githubusercontent.com/35038779/217030242-6d7a50ac-dabb-4948-a207-131ec1424406.png)
+This mapping table links the `interest_id` with their relevant interest information. You will need to join this table onto the previous `interest_details` table to obtain the `interest_name` as well as any details about the summary information.
 
+| id  | interest_name             | interest_summary                                             | created_at               | last_modified            |
+| --- | ------------------------- | ------------------------------------------------------------ | ------------------------ | ------------------------ |
+| 1   | Fitness Enthusiasts       | Consumers using fitness tracking apps and websites.          | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
+| 2   | Gamers                    | Consumers researching game reviews and cheat codes.          | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
+| 3   | Car Enthusiasts           | Readers of automotive news and car reviews.                  | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
+| 4   | Luxury Retail Researchers | Consumers researching luxury product reviews and gift ideas. | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
+| 5   | Brides & Wedding Planners | People researching wedding ideas and vendors.                | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
 
 
 * **Entity Relationship Diagram**:
