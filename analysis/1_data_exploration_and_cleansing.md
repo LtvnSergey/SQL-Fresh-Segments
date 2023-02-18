@@ -33,6 +33,7 @@ ALTER TABLE interest_metrics
     ALTER COLUMN month_year TYPE DATE USING to_date(CONCAT(_year,'-',_month,'-01'), 'YYYY-MM-DD');
 ````
 
+---
 
 ### 3. What is count of records in the `fresh_segments.interest_metrics` for each `month_year` value sorted in chronological order (earliest to latest)?
 
@@ -61,10 +62,48 @@ ORDER BY month_year
 |2019-08-01|1149|
 
 
-
 --- 
 
+
 ### 5. How many interest_id values exist in the fresh_segments.interest_metrics table but not in the fresh_segments.interest_map table? What about the other way around?
+
+````sql
+SELECT 
+	COUNT(DISTINCT interest_id) AS interest_ids_not_in_map_table
+FROM
+	interest_metrics
+WHERE
+	interest_id::INT NOT IN 
+(
+	SELECT
+		DISTINCT(id)
+	FROM
+		interest_map)
+````
+
+|interest_ids_not_in_map_table|
+|-----------------------------|
+|0|
+
+
+````sql
+SELECT 
+	COUNT(DISTINCT id) AS interest_ids_not_in_metric_table
+FROM
+	interest_map
+WHERE
+	id::CHARACTER  NOT IN 
+(
+	SELECT
+		DISTINCT(interest_id)
+	FROM
+		interest_metrics)
+````
+
+|interest_ids_not_in_metric_table|
+|--------------------------------|
+|10|
+
 
 
 --- 
