@@ -177,4 +177,50 @@ ON
 
 --- 
 
-#### 8. Are there any records in your joined table where the month_year value is before the created_at value from the fresh_segments.interest_map table? Do you think these values are valid and why?
+#### 8. Are there any records in joined table where the month_year value is before the created_at value from the fresh_segments.interest_map table? Are these values are valid?
+
+````sql
+SELECT
+	COUNT(*) AS records_with_month_year_before_creation
+FROM
+	interest_metrics im
+LEFT JOIN
+	interest_map m	
+ON
+	im.interest_id::INT = m.id
+WHERE
+	im.month_year < m.created_at
+````
+
+|records_with_month_year_before_creation|
+|---------------------------------------|
+|188|
+
+
+- There are 188 records which `month_year` value is before `created_at'	 value
+
+````sql
+SELECT
+	MAX(ABS(EXTRACT(YEAR FROM(month_year - created_at)))) AS max_year_diff,
+	MAX(ABS(EXTRACT(MONTH FROM(month_year - created_at)))) AS max_month_diff,
+	MAX(ABS(EXTRACT(DAY FROM(month_year - created_at)))) AS max_day_diff
+FROM
+	interest_metrics im
+LEFT JOIN
+	interest_map m	
+ON
+	im.interest_id::INT = m.id
+WHERE
+	im.month_year < m.created_at
+````
+
+|max_year_diff|max_month_diff|max_day_diff|
+|-------------|--------------|------------|
+|0|0|16|
+
+- These records with `month_year` before `created_at` are valid, because the difference between them are only in days and column `month_year` is only correct for months and years
+
+
+
+
+
