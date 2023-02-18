@@ -34,6 +34,7 @@ The project is based on [SQL-8-week-challenge](https://8weeksqlchallenge.com/cas
 
 ### Data description
 
+---
 
 * **Interest Metrics**
 
@@ -51,7 +52,7 @@ Each record in this table represents the performance of a specific `interest_id`
 | 7      | 2018  | 07-2018    | 6344        | 10.32       | 5.1         | 4       | 99.45              |
 | 7      | 2018  | 07-2018    | 100         | 10.77       | 5.04        | 5       | 99.31              |
 
-
+---
 
 * **Interest Map**
 
@@ -66,10 +67,11 @@ This mapping table links the `interest_id` with their relevant interest informat
 | 4   | Luxury Retail Researchers | Consumers researching luxury product reviews and gift ideas. | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
 | 5   | Brides & Wedding Planners | People researching wedding ideas and vendors.                | 2016-05-26T14:57:59.000Z | 2018-05-23T11:30:12.000Z |
 
+---
 
 * **Entity Relationship Diagram**:
 
-<img src="https://user-images.githubusercontent.com/35038779/217026508-fbcf5de1-463b-4450-8dd4-9c07aeaac714.png" alt="Image" width="1500" height="520">
+<img src="https://user-images.githubusercontent.com/35038779/219869820-6466b536-aad6-4ad1-a700-378ebfd5c888.png" alt="Image" width="1000" height="520">
 
 
 ### Modules and tools
