@@ -53,7 +53,7 @@ LIMIT 10
 
 --- 
 
-### 2. Most frequent interests among those top 10
+### 2. Most frequent interests among top 10 by the average composition for each month
 
 ````sql
  WITH 
@@ -142,7 +142,7 @@ ORDER BY cm.month_year
 
 ---
 
-### 4. 3 month rolling average of the max average composition value from September 2018 to August 2019, including the previous top ranking interests
+### 4. Three month rolling average of the max average composition value from September 2018 to August 2019, including the previous top ranking interests
 
 ````sql
  
