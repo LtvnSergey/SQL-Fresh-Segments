@@ -8,7 +8,7 @@
 - Average `composition` can be calculated by dividing the `composition` column by the `index_value` column rounded to 2 decimal places.
 
 
-### 1. What is the top 10 interests by the average composition for each month?
+### 1. Top 10 interests by the average composition for each month
 
 ````sql
  
@@ -53,8 +53,7 @@ LIMIT 10
 
 --- 
 
-
-### 2. For all of these top 10 interests - which interest appears the most often?
+### 2. Most frequent interests among those top 10
 
 ````sql
  WITH 
@@ -96,7 +95,7 @@ LIMIT 5
 
 ---
 
-### 3. What is the average of the average composition for the top 10 interests for each month?
+### 3. Average of the average composition for the top 10 interests for each month
 
 ````sql
  
@@ -143,7 +142,7 @@ ORDER BY cm.month_year
 
 ---
 
-### 4. What is the 3 month rolling average of the max average composition value from September 2018 to August 2019 and include the previous top ranking interests in the same output shown below
+### 4. 3 month rolling average of the max average composition value from September 2018 to August 2019, including the previous top ranking interests
 
 ````sql
  
@@ -197,8 +196,12 @@ OFFSET 2
 |2019-07-01|Las Vegas Trip Planners|2.82|3.33|Las Vegas Trip Planners : 2.77|Readers of Honduran Content : 4.41|
 |2019-08-01|Cosmetics and Beauty Shoppers|2.73|2.77|Las Vegas Trip Planners : 2.82|Las Vegas Trip Planners : 2.77|
 
+---
 
+### 5. Overall reasons why the max average composition might change from month to month
 
-
-
-
+- Max average composition might change from month-to-month due to such reasons as:
+	a. Some interest could be seasonal
+	b. Customers become tired of similar interests (like 'Work Comes First Travalers)
+	c. During the year an audience group in general could change
+	d. Current bussiness model is not appropriate and thus it should be modified
