@@ -102,7 +102,7 @@ WITH max_composition AS (
 		MAX(composition) AS max_composition
 	FROM
 		fresh_segments.interest_metrics
-	GROUP BY interest_id, month_year 
+	GROUP BY interest_id
 )
 ````
 
@@ -128,16 +128,17 @@ LIMIT 10
 
 |interest_name|max_composition|month_year|
 |-------------|---------------|----------|
-|Mowing Equipment Shoppers|1.51|2019-05-01 00:00:00.000|
-|Disney Fans|1.52|2019-06-01 00:00:00.000|
-|Philadelphia 76ers Fans|1.52|2019-05-01 00:00:00.000|
-|United Nations Donors|1.52|2019-04-01 00:00:00.000|
-|Beer Aficionados|1.52|2019-05-01 00:00:00.000|
-|New York Giants Fans|1.52|2019-06-01 00:00:00.000|
-|Gastrointestinal Researchers|1.52|2019-05-01 00:00:00.000|
-|Online Directory Searchers|1.53|2019-06-01 00:00:00.000|
-|LED Lighting Shoppers|1.53|2019-05-01 00:00:00.000|
-|Crochet Enthusiasts|1.53|2019-05-01 00:00:00.000|
+|Astrology Enthusiasts|1.88|2018-08-01 00:00:00.000|
+|Medieval History Enthusiasts|1.94|2018-10-01 00:00:00.000|
+|Dodge Vehicle Shoppers|1.97|2019-03-01 00:00:00.000|
+|Xbox Enthusiasts|2.05|2018-07-01 00:00:00.000|
+|Camaro Enthusiasts|2.08|2018-10-01 00:00:00.000|
+|Budget Mobile Phone Researchers|2.09|2019-08-01 00:00:00.000|
+|League of Legends Video Game Fans|2.09|2019-01-01 00:00:00.000|
+|Super Mario Bros Fans|2.12|2018-07-01 00:00:00.000|
+|Oakland Raiders Fans|2.14|2019-08-01 00:00:00.000|
+|Budget Wireless Shoppers|2.18|2018-07-01 00:00:00.000|
+
 
 
 - Select top 10 interests with lowest compostion value 
@@ -163,15 +164,16 @@ LIMIT 10
 |interest_name|max_composition|month_year|
 |-------------|---------------|----------|
 |Work Comes First Travelers|21.2|2018-12-01 00:00:00.000|
-|Work Comes First Travelers|20.28|2018-10-01 00:00:00.000|
-|Work Comes First Travelers|19.45|2018-11-01 00:00:00.000|
-|Work Comes First Travelers|18.99|2019-01-01 00:00:00.000|
 |Gym Equipment Owners|18.82|2018-07-01 00:00:00.000|
-|Work Comes First Travelers|18.39|2019-02-01 00:00:00.000|
-|Work Comes First Travelers|18.18|2018-09-01 00:00:00.000|
 |Furniture Shoppers|17.44|2018-07-01 00:00:00.000|
 |Luxury Retail Shoppers|17.19|2018-07-01 00:00:00.000|
 |Luxury Boutique Hotel Researchers|15.15|2018-10-01 00:00:00.000|
+|Luxury Bedding Shoppers|15.05|2018-12-01 00:00:00.000|
+|Shoe Shoppers|14.91|2018-07-01 00:00:00.000|
+|Cosmetics and Beauty Shoppers|14.23|2018-07-01 00:00:00.000|
+|Luxury Hotel Guests|14.1|2018-07-01 00:00:00.000|
+|Luxury Retail Researchers|13.97|2018-07-01 00:00:00.000|
+
 
 
 
