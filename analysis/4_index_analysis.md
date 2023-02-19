@@ -202,7 +202,7 @@ OFFSET 2
 
 - Max average composition might change from month-to-month due to such reasons as:
 
-1. Some interest could be seasonal
-2. Customers become tired of similar interests (like 'Work Comes First Travalers)
-3. During the year an audience group in general could change
-4. Current bussiness model is not appropriate and thus it should be modified
+	* Some interest could be seasonal
+	* Customers become tired of similar interests (like 'Work Comes First Travalers)
+	* During the year an audience group in general could change
+	* Current bussiness model is not appropriate and thus it should be modified
