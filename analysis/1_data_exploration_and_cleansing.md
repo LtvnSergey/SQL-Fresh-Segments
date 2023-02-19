@@ -25,7 +25,7 @@ DELETE FROM interest_metrics WHERE month_year IS NULL;
 
 --- 
 
-### 2. Update the `fresh_segments.interest_metrics` table by modifying the `month_year` column to be a date data type with the start of the month
+### 2. Updating the `fresh_segments.interest_metrics` table by modifying the `month_year` column to be a date data type with the start of the month
 
 
 ````sql
@@ -35,7 +35,7 @@ ALTER TABLE interest_metrics
 
 ---
 
-### 3. What is count of records in the `fresh_segments.interest_metrics` for each `month_year` value sorted in chronological order (earliest to latest)?
+### 3. Count of records in the `fresh_segments.interest_metrics` for each `month_year` value sorted in chronological order (earliest to latest)
 
 ````sql
 SELECT month_year, COUNT(*) AS records
@@ -65,7 +65,7 @@ ORDER BY month_year
 --- 
 
 
-### 5. How many interest_id values exist in the fresh_segments.interest_metrics table but not in the fresh_segments.interest_map table? What about the other way around?
+### 5. Amount of `interest_id` values exist in the `fresh_segments.interest_metrics` table but not in the `fresh_segments.interest_map` table
 
 ````sql
 SELECT 
@@ -107,7 +107,7 @@ WHERE
 
 --- 
 
-### 6. Summarise the id values in the 'fresh_segments.interest_map' by its total record count in this table
+### 6. Summary of `id` values in the 'fresh_segments.interest_map' by its total record count in this table
 
 ````sql
 WITH interest_id_count AS (
@@ -136,7 +136,7 @@ FROM
 
 --- 
 
-### 7. Join of tables `fresh_segments.interest_metrics` and `fresh_segments.interest_map` except from the id column.
+### 7. Combined table `fresh_segments.interest_metrics` and `fresh_segments.interest_map`
 
 ````sql
 SELECT
@@ -177,7 +177,7 @@ ON
 
 --- 
 
-### 8. Are there any records in joined table where the month_year value is before the created_at value from the fresh_segments.interest_map table? Are these values are valid?
+### 8. Amount of records in joined table where the `month_year` value is before the `created_at` value from the `fresh_segments.interest_map` table
 
 ````sql
 SELECT
@@ -219,8 +219,3 @@ WHERE
 |0|0|16|
 
 - These records with `month_year` before `created_at` are valid, because the difference between them are only in days and column `month_year` is only correct for months and years
-
-
-
-
-
