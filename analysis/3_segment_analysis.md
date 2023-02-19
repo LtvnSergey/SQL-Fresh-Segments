@@ -111,7 +111,7 @@ WITH max_composition AS (
 ````sql 
 SELECT 
 	sa.interest_name,
-	mc.max_composition,
+	mc.max_composition AS min_composition
 	sa.month_year
 FROM
 	fresh_segments.segment_analysis sa
@@ -126,7 +126,7 @@ ORDER BY
 LIMIT 10
 ````
 
-|interest_name|max_composition|month_year|
+|interest_name|min_composition|month_year|
 |-------------|---------------|----------|
 |Astrology Enthusiasts|1.88|2018-08-01 00:00:00.000|
 |Medieval History Enthusiasts|1.94|2018-10-01 00:00:00.000|
@@ -186,17 +186,17 @@ FROM
 	fresh_segments.segment_analysis
 GROUP BY
 	interest_name
-ORDER BY avg_ranking ASC 
+ORDER BY avg_ranking DESC 
 LIMIT 5
 ````
 
 |interest_name|avg_ranking|
 |-------------|-----------|
-|Winter Apparel Shoppers|1|
-|Fitness Activity Tracker Users|4|
-|Mens Shoe Shoppers|6|
-|Shoe Shoppers|9|
-|Competitive Tri-Athletes|12|
+|League of Legends Video Game Fans|1037|
+|Computer Processor and Data Center Decision Makers|974|
+|Astrology Enthusiasts|969|
+|Medieval History Enthusiasts|962|
+|Budget Mobile Phone Researchers|961|
 
 ---
 
