@@ -116,7 +116,7 @@ SELECT
 FROM
 	fresh_segments.segment_analysis sa
 LEFT JOIN
-max_composition mc
+	max_composition mc
 ON
 	sa.interest_id = mc.interest_id::INT
 WHERE
@@ -151,7 +151,7 @@ SELECT
 FROM
 	fresh_segments.segment_analysis sa
 LEFT JOIN
-max_composition mc
+	max_composition mc
 ON
 	sa.interest_id = mc.interest_id::INT
 WHERE
@@ -174,8 +174,57 @@ LIMIT 10
 |Luxury Hotel Guests|14.1|2018-07-01 00:00:00.000|
 |Luxury Retail Researchers|13.97|2018-07-01 00:00:00.000|
 
+--- 
+
+### 3. Which 5 interests had the lowest average `ranking` value?
+
+````sql
+SELECT 
+	interest_name,
+	ROUND(AVG(ranking), 0) AS avg_ranking
+FROM
+	fresh_segments.segment_analysis
+GROUP BY
+	interest_name
+ORDER BY avg_ranking ASC 
+LIMIT 5
+````
+
+|interest_name|avg_ranking|
+|-------------|-----------|
+|Winter Apparel Shoppers|1|
+|Fitness Activity Tracker Users|4|
+|Mens Shoe Shoppers|6|
+|Shoe Shoppers|9|
+|Competitive Tri-Athletes|12|
+
+---
+
+### 4. Which 5 interests had the largest standard deviation in their `percentile_ranking` value?
 
 
+````sql
+SELECT 
+	interest_name,
+	ROUND(STDDEV(percentile_ranking)::NUMERIC, 2) AS std_percentile_ranking
+FROM
+	fresh_segments.segment_analysis
+GROUP BY
+	interest_name
+ORDER BY
+	std_percentile_ranking DESC
+LIMIT 5
+````
+
+|interest_name|std_percentile_ranking|
+|-------------|----------------------|
+|Techies|30.18|
+|Entertainment Industry Decision Makers|28.97|
+|Oregon Trip Planners|28.32|
+|Personalized Gift Shoppers|26.24|
+|Tampa and St Petersburg Trip Planners|25.61|
+
+---
 
 
 
