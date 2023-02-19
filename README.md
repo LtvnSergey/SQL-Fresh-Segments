@@ -71,7 +71,7 @@ This mapping table links the `interest_id` with their relevant interest informat
 
 * **Entity Relationship Diagram**:
 
-<img src="https://user-images.githubusercontent.com/35038779/219869820-6466b536-aad6-4ad1-a700-378ebfd5c888.png" alt="Image" width="520" height="520">
+<img src="https://user-images.githubusercontent.com/35038779/219869820-6466b536-aad6-4ad1-a700-378ebfd5c888.png" alt="Image" width="800" height="520">
 
 ---
 
