@@ -5,7 +5,7 @@
 
 --- 
 
-### 1. Create table for segment analysis using filtered dataset by removing the interests with less than 6 months worth of data.
+### 1. Creating table for segment analysis using filtered dataset by removing the interests with less than 6 months worth of data.
 
 - Create `segment_analysis` table
 
@@ -91,7 +91,7 @@ LIMIT 5
 
 ---
 
-### 2. Using our filtered dataset by removing the interests with less than 6 months worth of data, which are the top 10 and bottom 10 interests which have the largest composition values in any month_year? Only use the maximum composition value for each interest but you must keep the corresponding month_year
+### 2. The top 10 and bottom 10 interests which have the largest composition values in any month_year
 
 - Calculate maximium composition for each interest
 
@@ -176,7 +176,7 @@ LIMIT 10
 
 --- 
 
-### 3. Which 5 interests had the lowest average `ranking` value?
+### 3. Interests with the lowest average `ranking` value
 
 ````sql
 SELECT 
@@ -200,7 +200,7 @@ LIMIT 5
 
 ---
 
-### 4. Which 5 interests had the largest standard deviation in their `percentile_ranking` value?
+### 4. Interests with the largest standard deviation in their `percentile_ranking` value
 
 
 ````sql
@@ -227,7 +227,7 @@ LIMIT 5
 ---
 
 
-### 5. For the 5 interests found in the previous question - what was minimum and maximum `percentile_ranking` values for each interest and its corresponding year_month value? Can you describe what is happening for these 5 interests?
+### 5. Minimum and maximum `percentile_ranking` values for each interest with the largest standard deviation in their `percentile_ranking` value
 
 
 ````sql
@@ -312,11 +312,11 @@ ON
 -  From the table above we can see that for whose interests `ranking percentile` become signinificantly lower from 86 - 73 % to 11 - 2 % in a matter of several months which means `index_value` became lower as well.
 
 
-### 6. How would you describe our customers in this segment based off their composition and ranking values? What sort of products or services should we show to these customers and what should we avoid?
+### 6. Description of customers in this segment based off their composition and ranking values
 
-- Based on the `composition` values and `ranking` we can say that 
-	1. Avoid showing topics related to games/astrology/history/tech stuff
-	2. Most popular topics are related to luxury things/gym-fitness/travel
+- Based on the `composition` values and `ranking` we can say that: 
+	1. Avoid showing interests related to games/astrology/history/tech stuff
+	2. Most popular interests are related to luxury things/gym-fitness/travel
 	
 - Topics with largest standart deviation of `percentile_ranking` could have vary differently in terms of their intereting to customers 
 from month to month. Such interests like 'Oregon Trip Planners' and 'Tampa and St Petersburg Trip Planners' sould be quite situational to use.
