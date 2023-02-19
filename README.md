@@ -73,6 +73,7 @@ This mapping table links the `interest_id` with their relevant interest informat
 
 <img src="https://user-images.githubusercontent.com/35038779/219869820-6466b536-aad6-4ad1-a700-378ebfd5c888.png" alt="Image" width="1000" height="520">
 
+---
 
 ### Modules and tools
 
