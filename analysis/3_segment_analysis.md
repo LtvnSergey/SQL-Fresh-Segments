@@ -314,6 +314,13 @@ ON
 
 ### 6. How would you describe our customers in this segment based off their composition and ranking values? What sort of products or services should we show to these customers and what should we avoid?
 
-- Based on the precvious analysis we can conclude that:
-	a. 
+- Based on the `composition` values and `ranking` we can say that 
+	1. Avoid showing topics related to games/astrology/history/tech stuff
+	2. Most popular topics are related to luxury things/gym-fitness/travel
+	
+- Topics with largest standart deviation of `percentile_ranking` could have vary differently in terms of their intereting to customers 
+from month to month. Such interests like 'Oregon Trip Planners' and 'Tampa and St Petersburg Trip Planners' sould be quite situational to use.
 
+- From maximum and minimum `percentile_ranking' table we can when such topics could be most interesting
+
+- Perhaps we could assume that most of our customers are middle-high class who are interested in luxury stuff, body appearence (gym, fitness) and ocasional travelling 
