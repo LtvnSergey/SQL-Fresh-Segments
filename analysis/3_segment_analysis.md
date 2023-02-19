@@ -309,7 +309,10 @@ ON
 |Techies|7.92|2019-08-01|86.69|2018-07-01|
 |Entertainment Industry Decision Makers|11.23|2019-08-01|86.15|2018-07-01|
 
+-  From the table above we can see that for whose interests `ranking percentile` become signinificantly lower from 86 - 73 % to 11 - 2 % in a matter of several months which means `index_value` became lower as well.
 
+
+### 6. How would you describe our customers in this segment based off their composition and ranking values? What sort of products or services should we show to these customers and what should we avoid?
 
 
 
