@@ -323,4 +323,4 @@ from month to month. Such interests like 'Oregon Trip Planners' and 'Tampa and S
 
 - From maximum and minimum `percentile_ranking' table we can when such topics could be most interesting
 
-- Perhaps we could assume that most of our customers are middle-high class who are interested in luxury stuff, body appearence (gym, fitness) and ocasional travelling 
+- Perhaps we could assume that most of our customers are middle-high class who are interested in luxury stuff, body appearence (gym, fitness) and occasional travelling 
