@@ -5,7 +5,7 @@
 
 --- 
 
-### 1. Which interests have been present in all `month_year`?
+### 1. Interests present in all `month_year`?
 
 ````sql
 WITH all_dates_interests AS (
@@ -68,7 +68,7 @@ WHERE
 
 ---
   
-### 2. Using this same `total_months` measure - calculate the cumulative percentage of all records starting at 14 months - which total_months value passes the 90% cumulative percentage value?
+### 2. Cumulative percentage of all records starting at 14 months
 
 ````sql 
 WITH month_count AS (
@@ -120,9 +120,14 @@ WHERE
 |2|12|98.92|
 |1|13|100.00|
 
+- Months count for records which cumulative percentage value passes the 90% 
+
+- We can try to set a lower threshold = 6 months to remove non-representative data points
+
 ---
 
-### 3. If we were to remove all interest_id values which are lower than the total_months value we found in the previous question - how many total data points would we be removing?
+
+### 3. Data points below threshold of representativeness
 
 
 ````sql
@@ -158,7 +163,10 @@ WHERE
 
 ---
 
-### 4. Does this decision make sense to remove these data points from a business perspective? Use an example where there are all 14 months present to a removed interest example for your arguments - think about what it means to have less months present from a segment perspective.
+### 4. Percentage of records removed
+
+- Does this decision make sense to remove these data points from a business perspective? 
+- What it means to have less months present from a segment perspective.
 
 ````sql
 WITH month_count AS (
@@ -240,7 +248,7 @@ but since we are removing small percantage of data for each month (< 8 %), it sh
 
 ---
 
-### 5. After removing these interests - how many unique interests are there for each month?
+### 5. Unique interests are there for each month after removing data below threshold
 
 ````sql
 WITH month_count AS (
