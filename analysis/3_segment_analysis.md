@@ -314,5 +314,6 @@ ON
 
 ### 6. How would you describe our customers in this segment based off their composition and ranking values? What sort of products or services should we show to these customers and what should we avoid?
 
-
+- Based on the precvious analysis we can conclude that:
+	a. 
 
