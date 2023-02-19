@@ -227,5 +227,89 @@ LIMIT 5
 ---
 
 
+### 5. For the 5 interests found in the previous question - what was minimum and maximum `percentile_ranking` values for each interest and its corresponding year_month value? Can you describe what is happening for these 5 interests?
+
+
+````sql
+WITH highest_std_perc_rank AS (
+SELECT 
+		interest_id,
+		ROUND(STDDEV(percentile_ranking)::NUMERIC, 2) AS std_percentile_ranking
+FROM
+		fresh_segments.segment_analysis
+GROUP BY
+		interest_id
+ORDER BY
+		STDDEV(percentile_ranking) DESC
+LIMIT 5
+),
+
+min_max_perc_ranking AS (
+SELECT 
+		interest_id, 
+		MIN(percentile_ranking) AS min_perc_ranking,
+		MAX(percentile_ranking) AS max_perc_ranking
+FROM
+		fresh_segments.segment_analysis
+GROUP BY
+		interest_id
+HAVING
+		interest_id IN (
+	SELECT
+			interest_id
+	FROM
+			highest_std_perc_rank)
+)
+
+SELECT 
+	min_rank.interest_name,
+	min_rank.min_perc_ranking,
+	min_rank.min_perc_ranking_date,
+	max_rank.max_perc_ranking,
+	max_rank.max_perc_ranking_date
+FROM
+	(
+	SELECT
+		sa.interest_name,
+		min_perc_ranking,
+		month_year::DATE AS min_perc_ranking_date
+	FROM
+		fresh_segments.segment_analysis sa
+	INNER JOIN
+	min_max_perc_ranking r
+ON
+		sa.interest_id = r.interest_id
+	WHERE
+		sa.percentile_ranking = r.min_perc_ranking
+) min_rank
+JOIN 
+(
+	SELECT
+		sa.interest_name,
+		max_perc_ranking,
+		month_year::DATE AS max_perc_ranking_date
+	FROM
+		fresh_segments.segment_analysis sa
+	INNER JOIN
+	min_max_perc_ranking r
+ON
+		sa.interest_id = r.interest_id
+	WHERE
+		sa.percentile_ranking = r.max_perc_ranking
+) max_rank
+ON
+	min_rank.interest_name = max_rank.interest_name
+````
+
+|interest_name|min_perc_ranking|min_perc_ranking_date|max_perc_ranking|max_perc_ranking_date|
+|-------------|----------------|---------------------|----------------|---------------------|
+|Tampa and St Petersburg Trip Planners|4.84|2019-03-01|75.03|2018-07-01|
+|Oregon Trip Planners|2.2|2019-07-01|82.44|2018-11-01|
+|Personalized Gift Shoppers|5.7|2019-06-01|73.15|2019-03-01|
+|Techies|7.92|2019-08-01|86.69|2018-07-01|
+|Entertainment Industry Decision Makers|11.23|2019-08-01|86.15|2018-07-01|
+
+
+
 
 
